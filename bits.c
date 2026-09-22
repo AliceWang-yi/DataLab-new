@@ -347,9 +347,7 @@ int midpointTowardFirst(int x, int y) {
     sy = y >> 31;
     signDiff = !!(sx ^ sy);
     d = y + (~x + 1);
-    greater =
-        (signDiff & !sx) |
-        (!signDiff & !!(d >> 31));
+    greater =(signDiff & !sx) | (!signDiff & !!(d >> 31));
     avg = (x & y) + ((x ^ y) >> 1);
     adjust = (x ^ y) & 1 & greater;
     return avg + adjust;
